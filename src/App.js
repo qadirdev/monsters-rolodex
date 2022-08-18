@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Component } from "react";
 
@@ -7,9 +6,9 @@ class App extends Component {
     super();
     this.state = {
       monster: [
-        { name: "shahram" },
-        { name: "shahram's father" },
-        { name: "shahram's child" },
+        {id:'1', name: "shahram" },
+        {id:'2', name: "shahram's father" },
+        {id:'3', name: "shahram's child" },
       ],
     };
   }
@@ -17,7 +16,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>{this.state.monster.map((monster)=>{
-          return(<h1>{monster.name}</h1>)
+          return(<h1 key={monster.id}>{monster.name}</h1>)
         }
         )}</h1>
       </div>
