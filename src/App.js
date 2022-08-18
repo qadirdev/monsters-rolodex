@@ -3,23 +3,26 @@ import "./App.css";
 import { Component } from "react";
 
 class App extends Component {
-  constructor(){
-    super()
+  constructor() {
+    super();
     this.state = {
-      name : 'Qadir'
-    }
-  };
-  render(){
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hey {this.state.name}</p>
-        <button onClick={()=>{this.setState({name:'Shahram'})}}>Change my name</button>
-      </header>
-    </div>
-  )
+      monster: [
+        { name: "shahram" },
+        { name: "shahram's father" },
+        { name: "shahram's child" },
+      ],
+    };
   }
-};
+  render() {
+    return (
+      <div className="App">
+        <h1>{this.state.monster.map((monster)=>{
+          return(<h1>{monster.name}</h1>)
+        }
+        )}</h1>
+      </div>
+    );
+  }
+}
 
 export default App;
