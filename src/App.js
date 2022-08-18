@@ -6,7 +6,7 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>hi deck head</p>
+        <p>Hey Sexy Boy</p>
       </header>
     </div>
   );
