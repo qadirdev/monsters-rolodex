@@ -1,12 +1,12 @@
 import "./App.css";
 import { Component } from "react";
-
+import CardList, { cardList } from "./components/card-list/card-list.component";
 class App extends Component {
   constructor() {
     super();
     this.state = {
       monsters: [],
-      searchField : ''
+      searchField: "",
     };
   }
   componentDidMount() {
@@ -18,10 +18,12 @@ class App extends Component {
         })
       );
   }
-  onSearchChange = (event)=>{
-    const  searchField = event.target.value.toLocaleLowerCase()
-            this.setState(() =>{return {searchField}});
-  }
+  onSearchChange = (event) => {
+    const searchField = event.target.value.toLocaleLowerCase();
+    this.setState(() => {
+      return { searchField };
+    });
+  };
 
   render() {
     const filtredMonsters = this.state.monsters.filter((monster) => {
@@ -35,11 +37,7 @@ class App extends Component {
           placeholder="Search Monsters"
           onChange={this.onSearchChange}
         />
-        <h1>
-          {filtredMonsters.map((monster) => {
-            return <h1 key={monster.id}>{monster.name}</h1>;
-          })}
-        </h1>
+          <CardList monsters={filtredMonsters}/>
       </div>
     );
   }
