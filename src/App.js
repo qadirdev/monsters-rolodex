@@ -18,6 +18,10 @@ class App extends Component {
         })
       );
   }
+  onSearchChange = (event)=>{
+    const  searchField = event.target.value.toLocaleLowerCase()
+            this.setState(() =>{return {searchField}});
+  }
 
   render() {
     const filtredMonsters = this.state.monsters.filter((monster) => {
@@ -29,10 +33,7 @@ class App extends Component {
           className="search-box"
           type="search"
           placeholder="Search Monsters"
-          onChange={(event) => {
-          const  searchField = event.target.value.toLocaleLowerCase()
-            this.setState(() =>{return {searchField}});
-          }}
+          onChange={this.onSearchChange}
         />
         <h1>
           {filtredMonsters.map((monster) => {
